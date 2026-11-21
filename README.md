@@ -52,7 +52,8 @@ See [commissioning scenarios](docs/commissioning.md),
 [workflow decisions](docs/workflow-decisions.md), and
 [upstream inventory](docs/upstream-inventory.md).
 
-SpielOrders is the first target; SpielPasswords follows. Application setup and
+This repository is the first commissioning target; SpielOrders and SpielPasswords
+follow. Its setup is recorded in [the tracker configuration](docs/agents/issue-tracker.md). Application setup and
 live commissioning require the target project's current rules and owner gates.
 
 ## License

@@ -1,6 +1,7 @@
 # Commissioning scenarios
 
-Run these against controlled fixtures first, then the approved SpielOrders pilot.
+Run these against controlled fixtures and this plugin repository first, then the
+approved SpielOrders pilot. Ian’s independent testing agent supplies the first issue.
 Use fictional data. Static package validation establishes file integrity only.
 Record actual observed outcomes; do not mark a scenario passed from reading it.
 

@@ -57,8 +57,9 @@ Use a small version-controlled project tracker configuration pointing to product
 rules and validation commands. Align applicable AGENTS.md policy before adopting
 worktrees in a project. Repository settings changes must be concrete and visible.
 
-Commission against SpielOrders with a genuine reproducible bug and a report
-requesting behavior contrary to product intent. Use fictional data and product
+Commission first against this plugin repository using an issue supplied by Ian’s
+independent testing agent. Follow with the SpielOrders pilot: a genuine reproducible
+bug and a report requesting behavior contrary to product intent. Use fictional data and product
 evidence for triage. Also test interrupted PR creation, a changed head after
 review, and reinvocation after merge before cleanup. Verify repeated invocation
 does not duplicate completed work.
