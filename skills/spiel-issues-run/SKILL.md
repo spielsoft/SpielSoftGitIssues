@@ -9,8 +9,9 @@ Adapted from Matt Pocock's implement-spec coordinator. Read the shared
 [workflow](../../references/workflow.md), [records](../../references/records.md),
 and [merge procedure](../../references/merge.md).
 
-Issues form a task graph with blocking relationships. Only the first eligible
-unit in the owner-approved order runs. Use fresh contexts and sparse context
+Issues form a task graph with blocking relationships. Prepare the first eligible
+unit in the owner-approved order, then review it before preparing the next.
+Reviewed unmerged PRs may wait for the final group decision. Use fresh contexts and sparse context
 pointers to GitHub issues, project rules, code revisions, and bundled skills.
 
 1. Load the approved batch, all its issue/PR records, and current Git/GitHub state.
@@ -22,7 +23,8 @@ pointers to GitHub issues, project rules, code revisions, and bundled skills.
    latest incomplete phase. A closed unmerged PR needs owner direction. Re-read
    comments after an ambiguous API error before retrying creation or mutation.
 3. For the next unit, check dependencies' actual dispositions. If blocked, record
-   why and return the choice of waiting or changing order to Ian. Create or
+   why and return the choice of waiting or changing order to Ian. Distinguish
+   preparation dependencies from delivery prerequisites using the shared workflow. Create or
    reconstruct its disposable worktree from the remote branch or current default
    branch, respecting project policy. Never reset unexpected existing changes.
 4. Start one fresh builder using [build](../spiel-issues-build/SKILL.md). Pass the
@@ -35,11 +37,19 @@ pointers to GitHub issues, project rules, code revisions, and bundled skills.
    the resulting revision in a fresh context; rounds 1 and 2 are the maximum
    repairs. Count rounds from GitHub on resume. At exhaustion, record unresolved
    findings, mark needs-human, and return to Ian.
-6. Present the reviewed PR and validation evidence for Ian's explicit merge
-   authorization at its current head. Await his decision. Approval of the batch
-   does not grant merge permission. Follow the merge procedure, verify closure,
-   and remove task-owned local state even if a failed merge must resume remotely.
-7. Record completion and move to the next approved unit. On interruption, GitHub
-   records and branches must suffice to reconstruct progress. Do not retain local
-   progress files. Do not start the next unit while unresolved ownership, cleanup,
-   or owner decisions remain.
+6. After a unit passes review, persist its exact head/base and evidence and mark
+   it ready for the group. Clean disposable local state under the remote-preservation
+   checks when safe. Prepare/review the next unit serially; waiting reviewed PRs
+   do not require a merge decision before that work. Resolve ownership, unexpected
+   files, and blocking review findings before proceeding.
+7. Once the run's PRs are ready, check final heads, scopes, dependencies, and
+   combined integration in the intended merge order. Present one ordered group
+   of PR numbers, full head SHAs, reviews, validation, and limitations for Ian's
+   explicit final approval. Triage approval grants no merge permission. Persist
+   the group record and links; changed heads/membership/order require a revision.
+8. Follow the merge procedure serially for approved members without individual
+   reapproval prompts. Verify closure and cleanup after each and record partial
+   group progress. A moved base triggers integration assessment and checks.
+   On interruption, reconstruct completed and remaining members from GitHub and
+   actual Git state; resume merged work at verification/cleanup. Preserve remote
+   recovery evidence and retain no local progress files.

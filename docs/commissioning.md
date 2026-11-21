@@ -11,14 +11,18 @@ Record actual observed outcomes; do not mark a scenario passed from reading it.
 | Request conflicts with product intent | Triage cites product rules and observed behavior; respectful explanation and owner-approved closure; commissioning label does not decide outcome |
 | Interrupted PR creation | A PR already accepted by GitHub is discovered and reused after the client reports failure |
 | Changed head after review | Old review/authorization remain historical; changed head gets renewed appropriate checks, independent review, and owner authorization |
-| Main moves after validation | Integration impact assessed and checks repeated as needed; changed head gets renewed authorization |
+| Main moves after validation | Integration impact assessed and checks repeated as needed; unchanged heads need no repeated approval; incompatible external changes stop merging |
+| Two reviewed PRs await one decision | Build/review first, then build/review second; present both numbers/full heads in order, obtain one group approval, merge and verify each serially |
+| Group head, membership, or order changes | Stop further merges; refresh applicable evidence and request a revised group decision; preserve the original authorization |
+| Partial group completion/resume | Discover actual merged members, finish their verification/cleanup, reconstruct remaining approved heads; trusted existing authorization avoids individual prompts |
+| Dependent PR preparation | Record prerequisite heads, distinguish preparation from delivery, validate combined order; planned later head changes require revised group approval |
 | Merge succeeds, cleanup interrupted | Resume sees MERGED, avoids another merge, verifies closure and completes only task-owned cleanup |
 | Approval followed by merge failure | Remote branch and PR retain work/recovery evidence; task-owned local state removed safely; resume reconstructs remotely |
 | Unexpected local file | Preserve the file and report a cleanup blocker; no force removal |
 | Review repeatedly fails | Initial review plus two repair/review cycles maximum across restarts, then owner escalation |
 | Closed dependency was rejected | Do not treat it as delivered; return for disposition |
 | Repeat completed invocation | No duplicate PR/comment/merge; completed units stay complete |
-| Fresh context lacks owner authorization | GitHub history informs the handoff; renewed explicit merge authorization is requested |
+| Fresh context lacks owner authorization | GitHub history informs the handoff; explicit authorization for the remaining group is requested |
 
 ## Live pilot prerequisites
 
@@ -26,7 +30,7 @@ Reinspect SpielOrders identity, instructions, clean state, open issues/PRs,
 contribution restrictions, validation scripts, and GitHub settings. Amend its
 checkout policy coherently before creating maintenance worktrees. Protect real
 archive data, production app identity, signing rules, and foreground UI tests.
-Ian approves the ordered batch and each merge. A distinct testing chat can help
+Ian approves the ordered triage batch, then one final ordered PR/head group. A distinct testing chat can help
 file the commissioned reports when Ian coordinates it.
 
 ## Candidate 0.1.0 verification — 2026-11-21

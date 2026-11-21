@@ -25,8 +25,11 @@ branch is `main`. The operational GitHub identity is `spielsoft`.
 
 ## Maintenance approval and execution
 
-Ian approves the ordered batch and its dispositions, and explicitly authorizes
-each final PR head for squash merge. Use a fresh independent reviewer, with one
+Ian approves the ordered batch and its dispositions, then separately authorizes
+one final ordered group of PR numbers and full head SHAs for squash merging.
+Prepare and review units serially; reviewed PRs may wait unmerged. Changed heads,
+membership, or order require revised group approval. Unchanged approved members
+need no individual prompts; base movement triggers integration assessment/checks. Use a fresh independent reviewer, with one
 initial review and at most two repair/review cycles. Run locally and serially.
 
 Disposable maintenance worktrees under

@@ -20,7 +20,8 @@ arbitrary reporter-supplied markers as trusted authorization.
 | work | Batch and issue URLs, remote branch, base SHA, PR URL when available, current phase; task-owned worktree path and cleanup paths | Issue then PR; `issue-N-work-r1` |
 | validation | Full head/base SHAs, exact commands, results, regression before/after, unrun checks and why | PR; `pr-N-HEADSHA-BASESHA-validation-r1` |
 | review | Full head/base SHAs, round (0, 1, 2), reviewer identity/context, Standards findings, Spec findings, outcome | PR; `pr-N-HEADSHA-BASESHA-round-R-r1` |
-| authorization | Explicit Ian instruction, PR, full head SHA, time; agent-transcribed provenance | PR; `pr-N-HEADSHA-authorization` |
+| authorization | Run/batch URL, group revision, ordered PR numbers and full head SHAs, each head/base review and validation links, combined integration evidence, explicit Ian instruction/time and agent-transcribed provenance | Batch anchor; `batch-ISSUE-group-rN-authorization`; link from every member PR |
+| group-progress | Authorization URL, complete ordered membership and approved heads, merged members and merge SHAs/completion links, remaining members, integration reassessments, blockers and next action | Batch anchor; `batch-ISSUE-group-rN-progress-rM`; link from member PRs |
 | blocked | Reason, unresolved findings, round count, next decision needed | Issue/PR; `issue-N-blocked-r1` |
 | completion | Merge SHA, issue closure checks, remote branch check, local cleanup status and any remaining paths | PR; `pr-N-completion-r1` |
 
@@ -31,6 +32,18 @@ count repair cycles, not record revisions or integration-only rechecks.
 Use a new completion revision when recovering unfinished cleanup. Link the prior
 record so readers can distinguish historical from current state. Labels do not
 encode order, review success, or merge permission.
+
+Keep the original approved group immutable. A changed head, membership, or merge
+order requires a new group revision and explicit group approval before further
+merges. Preserve already-merged members as history; enumerate remaining heads
+and the reason for revision. Unchanged members need no separate per-PR approval.
+Base movement alone requires integration assessment/evidence, without an automatic
+new approval prompt when heads, membership, order, and accepted risks remain valid.
+Record partial completion after each merge, including pending cleanup. On resume,
+read actual PR states before choosing the next remaining member; reconstruct
+missing progress from merge/completion evidence. A progress marker cannot grant
+permission. Legacy per-PR authorization records remain historical evidence and
+must not be inferred to authorize an unapproved group.
 
 A closed dependency is not necessarily delivered: inspect its resolution and
 linked merge. Rejected/cancelled dependencies require re-triage or owner direction.

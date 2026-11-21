@@ -33,7 +33,9 @@ Break the work into **tracer bullet** tickets.
 
 </vertical-slice-rules>
 
-Give each ticket its **blocking edges**: the other tickets that must complete before it can start. A ticket with no blockers can start immediately.
+Give each ticket its **blocking edges** and state whether each prerequisite is
+needed for preparation or must be merged before delivery. Apply the shared
+workflow dependency rules when preparing reviewed PRs for one group approval.
 
 For wide refactors, sequence expand, migrate, and contract steps only when each
 can land safely. If slices cannot pass validation independently, propose one

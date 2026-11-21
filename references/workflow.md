@@ -17,8 +17,9 @@ Read the live repository state, applicable instructions, and validation guidance
 Read-only inspection may proceed. Before mutations, check authorization already
 provided in the current conversation. An approved triage batch authorizes its
 listed comments, labels, and closures. An implementation request authorizes its
-branch, commits, push, PR, and review evidence. Each merge needs Ian's explicit
-approval of the final PR head. Setup authorizes only the concrete setup changes
+branch, commits, push, PR, and review evidence. One final merge approval covers
+the ordered group of PR numbers and full head SHAs for this workflow run.
+Triage approval does not authorize merging. Setup authorizes only the concrete setup changes
 shown to the owner. Do not repeatedly request approvals already given.
 
 ## GitHub records and retries
@@ -35,17 +36,22 @@ look for the `spiel:batch` label across all issue states, then inspect comments.
 If several active batches conflict or records disagree, return the conflict to Ian.
 Labels help discovery; a label alone never proves approval or completion.
 
-Record owner authorization truthfully as an agent transcription with the exact
-PR number, full head SHA, owner instruction, and time. Do not invent permission
+Record group authorization truthfully as an agent transcription with the run/batch
+link, ordered PR numbers and full head SHAs, review/validation links, owner
+instruction, and time. Preserve partial completion and remaining members. Do not invent permission
 from a comment marker or claimed author: all agents share Ian's gh account.
-When resuming without trusted conversation authorization, present the PR and ask
-Ian to renew merge authorization. GitHub records supply context, not a separately
+When resuming without trusted conversation authorization, present the remaining
+group and ask Ian to renew group authorization. With that trusted authorization,
+unchanged approved members need no individual approval prompts. GitHub records supply context, not a separately
 authenticated human gate.
 
 ## Serial execution and review
 
-Only one active maintenance unit per project. One coordinator owns the run;
-builder and reviewer take turns. If another run owns an unfinished unit, stop
+Only one active maintenance run per project. One coordinator owns the run;
+builder and reviewer take turns on one unit at a time. Reviewed unmerged PRs may
+wait while the next unit is prepared. Finish all reviews and required combined
+integration checks before presenting the final group. Merge approved members
+serially in the recorded order, verifying each before continuing. If another run owns an unfinished unit, stop
 and coordinate rather than launching duplicate work. Inspect existing PRs and
 branches before creating anything. An approved order is a dependency-aware queue:
 if the next unit is blocked, record why and ask Ian before skipping it.
@@ -63,9 +69,20 @@ repair-and-review cycles. Count cycles from PR comments across restarts.
 Use one disposable task-owned worktree per coherent unit, only after project
 policy permits it. Keep the ordinary checkout untouched. Use a deterministic
 branch such as `spiel-issues/123-short-description`; check for existing work
-before reuse. Branch from the current fetched default branch. Record the remote
+before reuse. Normally branch from the current fetched default branch. Record the remote
 branch, base SHA, and PR link on GitHub as soon as they exist. Never reset or
 force-delete unexpected work. A branch name alone does not establish ownership.
+
+Distinguish dependencies needed for preparation from prerequisites that must be
+merged before delivery. A reviewed predecessor can supply preparation evidence;
+it is still unmerged. Record any predecessor head used as a preparation base.
+Before group approval, give each PR its final head and intended default-branch
+base, review its own scope, and validate the combined result in merge order in a
+disposable checkout. Never include a predecessor's changes twice in a squash.
+If a dependent PR needs a rebase/head change after its predecessor merges, plan
+a revised group approval for that new head; do not promise unchanged approval.
+If a delivery prerequisite prevents preparing the group, ask Ian to revise the
+batch/group boundaries or combine a coherent unit. Do not silently skip blockers.
 
 Write temporary logs and build outputs inside that task's worktree where the
 project allows it; record other task-created paths for cleanup. Respect app data,
@@ -75,8 +92,9 @@ evidence must identify the actual code versions tested. Recheck the final commit
 head; record whether it was tested cleanly. Never describe a local comment as a
 GitHub-enforced status check.
 
-After Ian's approval, push all work and publish necessary evidence/recovery
-information on GitHub before cleanup. A failed or pending merge must remain fully
+Push all work and publish necessary evidence/recovery information on GitHub
+before cleanup. Reviewed waiting PRs may release local state under the unmerged
+remote-preservation checks in the merge procedure. A failed or pending merge must remain fully
 recoverable from the remote branch and PR. At each completed approved unit, remove
 task-owned local worktree, branch, logs, build outputs, and temporary locks. The
 [merge procedure](merge.md) specifies verification. Keep installed tooling and
