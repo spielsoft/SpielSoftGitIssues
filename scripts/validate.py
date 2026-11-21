@@ -16,10 +16,18 @@ def require(condition, message):
 manifest = json.loads((ROOT / '.codex-plugin/plugin.json').read_text())
 market = json.loads((ROOT / '.claude-plugin/marketplace.json').read_text())
 require(market['plugins'][0]['name'] == manifest['name'], 'Marketplace name mismatch')
-require((ROOT / manifest['skills']).is_dir(), 'Missing skills directory')
+source = (ROOT / market['plugins'][0]['source']).resolve()
+require(source.is_dir(), 'Marketplace source directory is missing')
+require(source == ROOT, 'Marketplace source must identify the validated package root')
+skills = (source / manifest['skills']).resolve()
+require(skills.is_relative_to(ROOT), 'Skills directory is outside package')
+require(skills.is_dir(), 'Missing skills directory')
+for entry_point in ('run', 'setup', 'triage', 'split', 'build', 'tdd', 'review', 'pr'):
+    path = skills / f'spiel-issues-{entry_point}' / 'SKILL.md'
+    require(path.is_file(), f'Missing required skill entry point: {path}')
 require(manifest['license'] == 'MIT', 'Unexpected project license')
 names = set()
-for skill in sorted((ROOT / 'skills').glob('*/SKILL.md')):
+for skill in sorted(skills.glob('*/SKILL.md')):
     text = skill.read_text()
     front = re.match(r'^---\n(.*?)\n---\n', text, re.S)
     require(front is not None, f'{skill}: missing frontmatter')
@@ -35,8 +43,8 @@ for skill in sorted((ROOT / 'skills').glob('*/SKILL.md')):
     require('../../references/workflow.md' in text, f'{skill}: missing shared contract')
 
 # Check linked runtime dependencies, excluding fenced code and external links.
-for folder in ('skills', 'references'):
-    for path in (ROOT / folder).rglob('*.md'):
+for folder in (skills, ROOT / 'references'):
+    for path in folder.rglob('*.md'):
         text = re.sub(r'```.*?```', '', path.read_text(), flags=re.S)
         for link in re.findall(r'\]\(([^)]+)\)', text):
             if '://' in link or link.startswith('#'):
