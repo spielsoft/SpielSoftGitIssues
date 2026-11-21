@@ -64,7 +64,30 @@ for path, holder in [('LICENSE', 'SpielSoft'), ('licenses/matt-pocock-MIT.txt', 
     require(holder in text and 'Permission is hereby granted' in text and 'THE SOFTWARE IS PROVIDED' in text,
             f'Incomplete license: {path}')
 labels = json.loads((ROOT / 'references/labels.json').read_text())
-require(len({x['name'] for x in labels}) == len(labels), 'Duplicate labels')
+required_labels = {
+    'bug', 'enhancement', 'spiel:needs-triage', 'spiel:needs-info',
+    'spiel:ready', 'spiel:needs-human', 'spiel:wontfix', 'spiel:batch',
+}
+label_names = set()
+require(isinstance(labels, list), 'Labels must be a list')
+if isinstance(labels, list):
+    for index, label in enumerate(labels):
+        require(isinstance(label, dict), f'Label {index}: expected an object')
+        if not isinstance(label, dict):
+            continue
+        for field in ('name', 'description', 'color'):
+            value = label.get(field)
+            require(isinstance(value, str) and bool(value.strip()),
+                    f'Label {index}: {field} must be a nonempty string')
+        color = label.get('color')
+        require(isinstance(color, str) and re.fullmatch(r'[0-9a-fA-F]{6}', color) is not None,
+                f'Label {index}: color must contain six hexadecimal digits')
+        name = label.get('name')
+        if isinstance(name, str):
+            require(name not in label_names, f'Duplicate label: {name}')
+            label_names.add(name)
+require(required_labels <= label_names,
+        f'Missing required labels: {sorted(required_labels - label_names)}')
 if errors:
     print('\n'.join(errors), file=sys.stderr)
     sys.exit(1)
