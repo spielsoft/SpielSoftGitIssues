@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Validate the distributable plugin without network or third-party packages."""
+import argparse
 import hashlib
 import json
 from pathlib import Path
@@ -7,6 +8,10 @@ import re
 import sys
 
 ROOT = Path(__file__).resolve().parents[1]
+parser = argparse.ArgumentParser(description=__doc__)
+parser.add_argument('upstream', nargs='?', type=Path, metavar='UPSTREAM_DIRECTORY',
+                    help='also verify source hashes against this upstream snapshot')
+args = parser.parse_args()
 errors = []
 
 def require(condition, message):
@@ -61,8 +66,8 @@ for entry in inventory['files']:
     require((ROOT / entry['destination']).is_file(), f'Missing imported file: {entry}')
     require(re.fullmatch('[0-9a-f]{64}', entry['upstream_sha256']) is not None, 'Invalid source digest')
 # Optionally verify against a downloaded snapshot, without modifying it.
-if len(sys.argv) == 2:
-    upstream = Path(sys.argv[1])
+if args.upstream is not None:
+    upstream = args.upstream
     for entry in inventory['files']:
         path = upstream / entry['source']
         require(path.is_file() and hashlib.sha256(path.read_bytes()).hexdigest() == entry['upstream_sha256'],
@@ -100,3 +105,7 @@ if errors:
     print('\n'.join(errors), file=sys.stderr)
     sys.exit(1)
 print(f'Validated {len(names)} skills, runtime links, manifests, labels, licenses, and source inventory.')
+if args.upstream is None:
+    print('Upstream source hashes were not checked (package-only validation).')
+else:
+    print(f'Verified {len(inventory["files"])} upstream source hashes against {args.upstream}.')
