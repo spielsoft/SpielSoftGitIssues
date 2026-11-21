@@ -14,13 +14,13 @@ upstream material is required.
 | implement-spec | spiel-issues-run | Serial coordinator; per-unit PR; restart from GitHub; bounded review and merge gate |
 | implement | spiel-issues-build | One approved branch; local validation; coordinator owns independent review |
 | code-review | spiel-issues-review | Retained Standards/Spec axes and smell guidance; fresh sequential reviewer |
-| pr | spiel-issues-pr | Retained body/evidence/risk guidance and HumanLayer credits; exact head/base and closing links |
+| pr | spiel-issues-pr | Concise body/evidence guidance and retained HumanLayer credits; canonical recovery record |
 | to-tickets | spiel-issues-split | Coherent slices and blockers; approved GitHub children; serial order |
 | tdd | spiel-issues-tdd | Retained behavior tests and loop; project testing conventions; no external design-skill dependency |
 
 ## Dependency dispositions
 
-- Triage's AGENT-BRIEF.md: retained with shorter examples and approved-scope rules.
+- Triage's AGENT-BRIEF.md: adapted to reuse existing scope and add missing criteria.
 - Triage's OUT-OF-SCOPE.md: inspected; local rejection database replaced by GitHub
   disposition comments and links to existing product decisions.
 - Triage's grilling/domain-modeling calls: replaced with focused clarification and
@@ -33,9 +33,9 @@ upstream material is required.
 - implement's TDD/review dependencies: bundled TDD, review delegated by coordinator.
 - TDD's tests.md and mocking.md: retained verbatim. codebase-design dependency
   replaced by the short public-interface definition and project testing conventions.
-- PR's CREDITS.md and metadata: retained verbatim, attributing Dex Horthy/HumanLayer.
-  The PR skill embeds the credited visual guidance; it has no runtime dependency
-  on HumanLayer's show-me skill. HumanLayer MIT notice is also bundled.
+- PR's metadata and adapted CREDITS.md retain Dex Horthy/HumanLayer attribution.
+  The copied visual menu is replaced by concise prose guidance and optional
+  evidence visuals. There is no runtime show-me dependency; its MIT notice remains.
 - Upstream marketplace structure: retained and renamed to SpielSoft. Codex plugin
   manifest follows the locally installed Codex format. Claude Code packaging and
   runtime commissioning remain future work.

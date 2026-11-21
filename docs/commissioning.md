@@ -24,6 +24,25 @@ Record actual observed outcomes; do not mark a scenario passed from reading it.
 | Repeat completed invocation | No duplicate PR/comment/merge; completed units stay complete |
 | Fresh context lacks owner authorization | GitHub history informs the handoff; explicit authorization for the remaining group is requested |
 
+## Concise-record scenarios
+
+Exercise these as instruction walkthroughs or controlled live trials; identify
+which kind was performed and retain the resulting output for review.
+
+- Supply a clean PR with complete tests and a fresh review at fixed head/base.
+  Inspect rendered review text (`Approved`) and recover both axis outcomes,
+  reviewer context, exact revisions and round from its metadata.
+- Supply a reproducible defect and a request conflicting with product intent.
+  Inspect actionable PR findings for the defect and a sourced issue disposition
+  for the request; neither may be hidden in metadata.
+- Simulate PR creation accepted before timeout, then retry with an automatically
+  linked issue. Confirm reuse of the PR and no new issue/status comments.
+- Resume a partial group with a legacy round-1 review, one merged member and an
+  unexpected cleanup file. Recover authorization/history, preserve the file,
+  update existing records, and leave the next member unmerged until resolved.
+- Repeat with no changed facts. Confirm no writes; then change a head and confirm
+  stale evidence cannot approve it or grant revised authorization.
+
 ## Live pilot prerequisites
 
 Reinspect SpielOrders identity, instructions, clean state, open issues/PRs,

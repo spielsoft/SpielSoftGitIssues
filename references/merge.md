@@ -52,13 +52,14 @@ For each member, in approved order:
    not consider the branch merged: `git branch -D BRANCH` is permitted only after
    those explicit checks and only if its tip still equals the approved head.
 8. Verify `git worktree list`, local branch absence, and task temporary-path
-   absence. Record completion on the PR, including any cleanup blocker. Proceed
+   absence. Update completion in the canonical PR record, including any cleanup blocker. Proceed
    to the next approved group member only when this unit is complete or Ian
-   directs it. Record partial group progress and remaining members on the batch
-   anchor after each merge, including any verification or cleanup blockers.
+   directs it. Update partial group progress in the existing batch record (PR body or shared issue anchor) after each merge,
+   including verification/cleanup blockers; post no new status comments.
 
 For a reviewed PR waiting for group approval, or an approved merge that fails or
-is delayed, publish its status and all recovery information, verify the remote branch holds every local commit, then
+is delayed, update its canonical PR recovery record, verify the remote branch
+holds every local commit, then
 remove task-owned local state using the same ownership checks. In this unmerged
 case, local branch deletion is allowed only after checking that its exact tip
 equals the retained remote branch tip and the PR contains the evidence and next

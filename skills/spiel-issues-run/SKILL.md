@@ -21,7 +21,7 @@ pointers to GitHub issues, project rules, code revisions, and bundled skills.
    plausible PR or branch exists, reconcile with Ian rather than guessing.
 2. Resume merged work at verification and cleanup. Resume an open PR at the
    latest incomplete phase. A closed unmerged PR needs owner direction. Re-read
-   comments after an ambiguous API error before retrying creation or mutation.
+   bodies, comments and reviews after an ambiguous API error before retrying.
 3. For the next unit, check dependencies' actual dispositions. If blocked, record
    why and return the choice of waiting or changing order to Ian. Distinguish
    preparation dependencies from delivery prerequisites using the shared workflow. Create or
@@ -35,7 +35,7 @@ pointers to GitHub issues, project rules, code revisions, and bundled skills.
    [review](../spiel-issues-review/SKILL.md), with exact head/base and issue/rules.
    Record round 0. For blocking findings, hand them to the builder, then review
    the resulting revision in a fresh context; rounds 1 and 2 are the maximum
-   repairs. Count rounds from GitHub on resume. At exhaustion, record unresolved
+   repairs. Count rounds from canonical records and legacy reviews on resume. At exhaustion, record unresolved
    findings, mark needs-human, and return to Ian.
 6. After a unit passes review, persist its exact head/base and evidence and mark
    it ready for the group. Clean disposable local state under the remote-preservation

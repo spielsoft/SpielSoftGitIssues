@@ -29,10 +29,13 @@ issues, PRs, and comments relevant to the batch; gh defaults can truncate lists.
 Before repeating a mutation after an error/timeout, read back its target. A client
 failure can occur after GitHub accepted the operation. Never blindly retry creation.
 
-Approved order lives in a batch comment on the first issue of the batch; every
-member gets a link to that comment. Closed issues remain valid batch anchors.
-Discover anchors across open and closed issues. On resume with no batch pointer,
-look for the `spiel:batch` label across all issue states, then inspect comments.
+Approved order lives in the canonical batch record: the PR body for a one-issue
+run, or one shared issue comment for a multi-issue/pre-PR batch. Member PR records
+link to a shared anchor without extra issue comments. Closed anchors remain valid.
+On resume with no pointer, discover linked PRs (open, closed and merged), inspect
+their bodies, and search `spiel:batch` issues across all states for legacy or
+shared anchors. Follow links between records; a batch need not carry that label
+when its anchor is a PR body.
 If several active batches conflict or records disagree, return the conflict to Ian.
 Labels help discovery; a label alone never proves approval or completion.
 
@@ -62,7 +65,8 @@ with fresh context when permitted. If independent execution is unavailable,
 prepare the handoff and report that review is pending. Never label the builder's
 own reread as independent review. Do not request another model unless project
 policy or Ian specifies one. Review budget: initial review, then no more than two
-repair-and-review cycles. Count cycles from PR comments across restarts.
+repair-and-review cycles. Count cycles from canonical PR records and legacy
+review comments across restarts.
 
 ## Worktrees and evidence
 
@@ -70,7 +74,8 @@ Use one disposable task-owned worktree per coherent unit, only after project
 policy permits it. Keep the ordinary checkout untouched. Use a deterministic
 branch such as `spiel-issues/123-short-description`; check for existing work
 before reuse. Normally branch from the current fetched default branch. Record the remote
-branch, base SHA, and PR link on GitHub as soon as they exist. Never reset or
+branch and base SHA in the canonical PR record when opening the PR. If work
+stops before a PR exists, preserve these recovery facts in the batch record. Never reset or
 force-delete unexpected work. A branch name alone does not establish ownership.
 
 Distinguish dependencies needed for preparation from prerequisites that must be
