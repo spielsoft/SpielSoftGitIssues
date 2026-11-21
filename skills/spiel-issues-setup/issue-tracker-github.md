@@ -18,7 +18,10 @@ Default branch: `<branch>`.
 ## Maintenance approval and execution
 
 - Ian approves the ordered triage batch and its listed dispositions.
-- Ian explicitly authorizes each squash merge at the final full head SHA.
+- Ian approves one final ordered group of PR numbers and full head SHAs per run.
+  Triage approval is distinct. Build/review proceed serially; reviewed PRs may wait
+  unmerged. Changed heads, membership, or order require revised group approval;
+  unchanged members proceed without individual prompts. Assess/test moved bases.
 - Review: fresh independent context, initial review plus at most two repair/review cycles.
 - Run locally and serially; temporary maintenance worktrees are allowed under
   `<agreed parent path>` by `<applicable policy section>`.

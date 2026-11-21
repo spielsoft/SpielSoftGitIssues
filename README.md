@@ -3,7 +3,16 @@
 A self-contained plugin for serial GitHub issue triage, local implementation,
 independent review, and owner-authorized squash merging across SpielSoft projects.
 
-Version 0.1.0 is a commissioning candidate. It contains prompt-driven skills;
+Version 0.1.1 is a commissioning candidate for group merge approval. The installed
+0.1.0 verification remains recorded in the commissioning history; 0.1.1 requires
+fresh review and installation verification before adoption. Preserve the approved
+installed source throughout an active maintenance run.
+
+The plugin prepares and independently reviews PRs serially, then requests one
+final approval of the ordered group of PR numbers and exact head commits.
+Triage approval is a separate decision.
+
+It contains prompt-driven skills;
 the agent runs local Git, GitHub CLI, and project checks. It is not a background
 service or a GitHub-enforced approval system.
 

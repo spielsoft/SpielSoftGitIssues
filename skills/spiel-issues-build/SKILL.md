@@ -28,4 +28,6 @@ link only issues actually resolved. Publish validation and work records on GitHu
 
 Return the PR, full head/base SHAs, evidence, and unresolved concerns to the
 coordinator. The coordinator performs independent review in a fresh context and
-requests Ian's merge decision. Do not merge, self-approve, or start another issue.
+queues the reviewed PR for the run's single final group approval. The coordinator
+may prepare the next unit after this review while this PR waits unmerged. Do not
+merge, self-approve, or independently start another issue.

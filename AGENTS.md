@@ -15,7 +15,12 @@ After bootstrap setup, issue-driven changes use one disposable worktree and one
 branch per coherent unit. Keep this ordinary checkout available to Ian. Create
 uniquely named task worktrees under `/private/tmp/spielsoft-git-issues-worktrees/`.
 Process issues serially through the installed plugin's approved batch, fresh
-independent review, and explicit owner-authorized squash merge procedure.
+independent review, and one explicit owner approval of the final ordered group
+of PR numbers and exact head SHAs per run. Reviewed unmerged PRs may wait while
+the next unit is prepared. Merge approved members serially, one squash per PR,
+with integration assessment, closure verification, and cleanup. Changed heads,
+membership, or order require revised group approval; unchanged approved members
+need no individual approval prompts.
 Remove task-owned local state after preserving work and recovery evidence on
 GitHub; preserve unexpected files and report cleanup blockers.
 
