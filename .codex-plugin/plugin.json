@@ -1,0 +1,16 @@
+{
+  "name": "spielsoft-git-issues",
+  "version": "0.1.0",
+  "description": "Serial GitHub issue maintenance with local checks, independent review, and owner-authorized squash merges.",
+  "author": {
+    "name": "SpielSoft"
+  },
+  "license": "MIT",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "SpielSoftGitIssues",
+    "shortDescription": "Serial GitHub issue maintenance",
+    "developerName": "SpielSoft",
+    "category": "Developer Tools"
+  }
+}

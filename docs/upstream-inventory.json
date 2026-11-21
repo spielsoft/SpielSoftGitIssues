@@ -1,0 +1,81 @@
+{
+  "repository": "https://github.com/mattpocock/skills",
+  "revision": "abeeaf95660ba9e8b7c753eb38f441ca707a8823",
+  "files": [
+    {
+      "source": "skills/engineering/setup-matt-pocock-skills/SKILL.md",
+      "destination": "skills/spiel-issues-setup/SKILL.md",
+      "upstream_sha256": "b01e05bfe8c323171275c6ceec78b12f1bd4c62dfd26c2cfe8be806d3883f1ed"
+    },
+    {
+      "source": "skills/engineering/triage/SKILL.md",
+      "destination": "skills/spiel-issues-triage/SKILL.md",
+      "upstream_sha256": "917b0baf74be583e74f110857ed45df2766617f75c00baf61fd136d7af515edf"
+    },
+    {
+      "source": "skills/engineering/implement-spec/SKILL.md",
+      "destination": "skills/spiel-issues-run/SKILL.md",
+      "upstream_sha256": "1993a473cec40ac85d081c112cdffdc63ec3267c2e412055ad09e013a2f623d1"
+    },
+    {
+      "source": "skills/engineering/implement/SKILL.md",
+      "destination": "skills/spiel-issues-build/SKILL.md",
+      "upstream_sha256": "483bdc4ccf4ac31d86ac7beeaa0d0db80313e71e120bb8c59b3196ae5decd53d"
+    },
+    {
+      "source": "skills/engineering/code-review/SKILL.md",
+      "destination": "skills/spiel-issues-review/SKILL.md",
+      "upstream_sha256": "9c921a8d88138a41401d8897ca1bb852088ab1b7b605cdd04edc13e3e8aab6dd"
+    },
+    {
+      "source": "skills/engineering/pr/SKILL.md",
+      "destination": "skills/spiel-issues-pr/SKILL.md",
+      "upstream_sha256": "ab63f1cf78647389edcd386c9427c5dfca27ed2836930c24773ffee834c19bcd"
+    },
+    {
+      "source": "skills/engineering/to-tickets/SKILL.md",
+      "destination": "skills/spiel-issues-split/SKILL.md",
+      "upstream_sha256": "56ec23c5b2782785d4e65bff9e315b6d3aeb4ef977c174a219e99489fada1995"
+    },
+    {
+      "source": "skills/engineering/tdd/SKILL.md",
+      "destination": "skills/spiel-issues-tdd/SKILL.md",
+      "upstream_sha256": "5505d25bbaa8fc14a79e4d20163936958992a2995b7f1dd1d6197edc9ed722e0"
+    },
+    {
+      "source": "skills/engineering/tdd/tests.md",
+      "destination": "skills/spiel-issues-tdd/tests.md",
+      "upstream_sha256": "859f9e592c188fda4fc7277dd180e4ce9c7a2e13f6efe1f6f29eccc9d28c106a"
+    },
+    {
+      "source": "skills/engineering/tdd/mocking.md",
+      "destination": "skills/spiel-issues-tdd/mocking.md",
+      "upstream_sha256": "3ceb807fdf4a47d6a93d4d9a891e5ba6d362a6247bd08adc451feebfc17361ef"
+    },
+    {
+      "source": "skills/engineering/pr/CREDITS.md",
+      "destination": "skills/spiel-issues-pr/CREDITS.md",
+      "upstream_sha256": "a7a087127665d7298a72280ef6e19c41ad8404523712a788c8dc3ab414bc2497"
+    },
+    {
+      "source": "skills/engineering/triage/AGENT-BRIEF.md",
+      "destination": "skills/spiel-issues-triage/AGENT-BRIEF.md",
+      "upstream_sha256": "7f5f87fed3033df1b06e083c480f3e847b1fbb0647746b8a4c6a50f9f26ef44f"
+    },
+    {
+      "source": "skills/engineering/setup-matt-pocock-skills/issue-tracker-github.md",
+      "destination": "skills/spiel-issues-setup/issue-tracker-github.md",
+      "upstream_sha256": "6fdb3e9b00b7b0b115ecac3b1c00e3790f637f190abf598815368722c0a94692"
+    },
+    {
+      "source": "LICENSE",
+      "destination": "licenses/matt-pocock-MIT.txt",
+      "upstream_sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5"
+    },
+    {
+      "source": ".claude-plugin/marketplace.json",
+      "destination": ".claude-plugin/marketplace.json",
+      "upstream_sha256": "83e889fed719fc92dc17a4accc69beed7d6c28bc87ec064b515a90a030f72e13"
+    }
+  ]
+}

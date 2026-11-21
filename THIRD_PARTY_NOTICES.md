@@ -1,23 +1,35 @@
-# Third-party sources and attribution
+# Third-party attribution
 
-## Planned foundation: Matt Pocock's skills
+## Matt Pocock's skills
 
-- Author: Matt Pocock
-- Source: https://github.com/mattpocock/skills
-- Candidate fixed revision: `abeeaf95660ba9e8b7c753eb38f441ca707a8823`
-- License: MIT
-- Upstream notice: Copyright (c) 2026 Matt Pocock
-- Verified license: https://github.com/mattpocock/skills/blob/abeeaf95660ba9e8b7c753eb38f441ca707a8823/LICENSE
+This plugin adapts Matt Pocock's open-source skills:
+https://github.com/mattpocock/skills
 
-No upstream implementation files have been imported yet. The planned adaptation
-covers project setup, triage, implementation coordination, review, and PR evidence.
+Fixed revision: `abeeaf95660ba9e8b7c753eb38f441ca707a8823`.
 
-Before importing, inventory the retained files and their reference dependencies.
-Record the actual pinned revision and source-to-destination mapping. Preserve the
-complete upstream MIT license and copyright notice with imported material, and
-retain any additional third-party credits and licenses required by individual
-files. Check those individual notices before deciding to include each file.
+Copyright (c) 2026 Matt Pocock. Licensed under MIT. The complete notice is retained
+in [licenses/matt-pocock-MIT.txt](licenses/matt-pocock-MIT.txt).
 
-The upstream MIT license permits adaptation and redistribution subject to keeping
-its copyright and permission notice. SpielSoft's MIT license does not replace
-upstream notices.
+See [the inventory](docs/upstream-inventory.md) and its linked file-level source
+hashes for retained content and adaptation scope. SpielSoft's changes include
+serial coordination, GitHub recovery records, approval gates, cleanup, and names.
+
+## Dex Horthy / HumanLayer
+
+The upstream PR skill credits Dex Horthy's HumanLayer `show-me` skill for its
+summary visual guidance. That credit is preserved in
+[the PR skill](skills/spiel-issues-pr/SKILL.md) and
+[CREDITS.md](skills/spiel-issues-pr/CREDITS.md).
+
+Source credited upstream:
+https://github.com/humanlayer/skills/blob/main/plugins/show-me/skills/show-me/SKILL.md
+
+Copyright (c) 2026 HumanLayer. The MIT license inspected at
+https://github.com/humanlayer/skills/blob/main/LICENSE is retained in
+[licenses/humanlayer-MIT.txt](licenses/humanlayer-MIT.txt).
+No additional HumanLayer skill is required or installed. The credited text is
+inherited through the pinned Matt Pocock source listed above.
+
+SpielSoft original contributions use [LICENSE](LICENSE). Preserve all applicable
+notices when redistributing this package. Third-party notices remain attached to
+their respective material.

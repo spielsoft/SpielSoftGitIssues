@@ -1,0 +1,10 @@
+[
+  {"name":"bug","color":"d73a4a","description":"Behavior conflicts with intended product behavior"},
+  {"name":"enhancement","color":"a2eeef","description":"New or improved intended behavior"},
+  {"name":"spiel:needs-triage","color":"ededed","description":"Awaiting evidence and owner disposition"},
+  {"name":"spiel:needs-info","color":"d876e3","description":"Waiting for specific missing information"},
+  {"name":"spiel:ready","color":"0e8a16","description":"Approved brief; eligible subject to batch order and dependencies"},
+  {"name":"spiel:needs-human","color":"fbca04","description":"Owner decision or manual work required"},
+  {"name":"spiel:wontfix","color":"ffffff","description":"Owner-approved request will not be implemented"},
+  {"name":"spiel:batch","color":"5319e7","description":"Issue contains an approved maintenance batch record"}
+]
