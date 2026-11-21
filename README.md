@@ -3,10 +3,9 @@
 A self-contained plugin for serial GitHub issue triage, local implementation,
 independent review, and owner-authorized squash merging across SpielSoft projects.
 
-Version 0.1.1 is a commissioning candidate for group merge approval. The installed
-0.1.0 verification remains recorded in the commissioning history; 0.1.1 requires
-fresh review and installation verification before adoption. Preserve the approved
-installed source throughout an active maintenance run.
+Version 0.1.2 adds concise GitHub records. Adoption requires fresh review and
+installation verification. Preserve the approved installed source throughout an
+active maintenance run. Earlier verification remains in the commissioning history.
 
 The plugin prepares and independently reviews PRs serially, then requests one
 final approval of the ordered group of PR numbers and exact head commits.

@@ -46,8 +46,8 @@ reviewable batch. Include complete acceptance criteria for actionable units.
 For complex work use [split](../spiel-issues-split/SKILL.md) to propose coherent
 slices. Wait for Ian's batch/disposition approval before applying mutations.
 
-Record the approved batch and per-issue links using the records contract. Post
-briefs for ready work; explain manual work for needs-human. For needs-info, record
+Record the approved batch using the records contract. Reuse existing issue scope
+and add only missing acceptance criteria; explain manual work for needs-human. For needs-info, record
 what is established and the specific outstanding questions. For approved
 rejections, post a respectful explanation citing product evidence, then close
 with the appropriate reason. Rejected requests use `not planned`; already fixed

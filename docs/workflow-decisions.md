@@ -55,6 +55,14 @@ work so cleanup has a clear ownership boundary. Preserve the user's ordinary
 checkout, unrelated files, and installed tooling. Never force-delete unexpected
 changes; preserve the work and report the cleanup blocker.
 
+Keep issue discussion focused on the problem and disposition. Use automatic PR
+links or one brief pointer. The PR owns validation and independent review; a
+passing review renders only `Approved`. Update canonical PR/batch records in
+place for recovery and group progress, retaining audit history in HTML metadata.
+A one-issue run keeps batch/group facts in its PR; multi-issue or pre-PR recovery
+uses one shared issue anchor.
+Read legacy records without rewriting them. Keep actionable findings visible.
+
 Restart by inspecting GitHub and actual Git state. Use stable record markers and
 explicit links to avoid duplicate PRs, comments, and actions. A merge completed
 before interruption must resume at verification and cleanup.
